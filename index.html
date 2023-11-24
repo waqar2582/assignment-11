@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="class23.css">
   <title>Document</title>
   <style>
     body {
@@ -11,8 +10,9 @@
   margin: 0px;
   padding: 0;
   box-sizing: border-box;
-}
-.main{
+ }
+
+/* .main{
 display: flex;
 align-items: center;
   background:black;
@@ -77,7 +77,7 @@ input {
   background: transparent;
   color: green;
   box-shadow: 0 0 20px 5px rgb(0, 0, 0);
-}  
+}   */ 
 
 .item-details {
   max-height: 100px; 
@@ -135,7 +135,7 @@ th{
   </style>
 </head>
 <body>
-  <div class="main">
+  <!-- <div class="main">
     <form action="#" class="formData">
       <label for="firstName">First Name:</label>
       <input type="text" name="name" id="firstName" placeholder="First Name" required>
@@ -148,7 +148,7 @@ th{
   </div>
   <div id="displayData">
 
-  </div> 
+  </div>  -->
 
 
   <div class="item-details" id="itemDetails">
@@ -203,7 +203,7 @@ th{
 </tr>
 </table>
 </div>
-<script src="class23.js">
+<script>
   function submitFormData(){
   let firstName = document.getElementById('firstName').value;
   let lastName = document.getElementById('lastName').value;
@@ -226,6 +226,43 @@ function toggleReadMore() {
     itemDetails.style.maxHeight = itemDetails.scrollHeight + "px";
   }
 }
+
+
+
+function deleteData(button) {
+  let row = button.parentNode.parentNode;
+  row.parentNode.removeChild(row);
+}
+function editData( button) {
+  var row = button.parentNode.parentNode;
+    var data = [];
+    data[1] = row.cells[1].innerHTML;
+    data[2] = row.cells[2].innerHTML;
+    data[3] = row.cells[3].innerHTML;
+
+    let a = prompt("Enter updated name: ");
+    let b = prompt("Enter updated class: ");
+    let c = prompt("Enter updated marks: ");
+      
+    if (b !== "") {
+        row.cells[1].innerHTML = b;
+    }
+    else {
+        row.cells[1].innerHTML = data[1]
+    }
+    if (c !== "") {
+        row.cells[2].innerHTML = c;
+    }
+    else {
+        row.cells[2].innerHTML = data[2]
+    }
+    if (d !== "") {
+        row.cells[3].innerHTML = d;
+    }
+    else {
+        row.cells[3].innerHTML = data[3]
+    }
+  }
 </script>
 </body>
 </html>
