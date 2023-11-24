@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="class23.css">
+  <title>Document</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main{
+display: flex;
+align-items: center;
+  background:black;
+  height: 100vh;
+  width: 100%;
+}
+
+form {
+  background: #ffffff;
+  max-width: 500px;
+  padding: 30px;
+  box-shadow: 3px 4px 9px 7px rgb(221, 210, 210);
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+ .btn {
+  padding: 10px;
+  color: white;
+} 
+
+.btn{
+  padding: 8px 20px;
+  width: 150px;
+  border: none;
+  height: 40px;
+  color: #fff;
+  background-color: #4caf50;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 0;
+  text-transform: uppercase;
+  margin: 25px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgb(152, 152, 168);
+  background: #000;
+}
+.btn::before{
+  content: "";
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(130deg,transparent,#00fffc,transparent);
+  transform: translateX(-100%);
+  transition: 0.15s;
+  position: absolute; 
+}
+.btn:hover{
+  background: transparent;
+  color: green;
+  box-shadow: 0 0 20px 5px rgb(0, 0, 0);
+}  
+
+.item-details {
+  max-height: 100px; 
+  overflow: hidden; 
+  transition: max-height 0.5s ease;
+
+}
+
+.read-more-btn {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+#studentData{
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+table {
+  border-collapse: separate;
+   border-spacing:15px; 
+   color: white;
+  }
+td{
+  border: 1px solid gray; 
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+  font-style: italic;
+  font-size: 1.2rem;
+  box-shadow: 3px 4px 9px 7px rgb(201, 210, 210);
+}
+th{
+  font-size  : 2rem;
+}
+.hoverButton button {
+ background: transparent;
+ border: none;
+}
+ button a{
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 5px;
+  color: white;  
+}
+
+.hoverButton:hover {
+  background:hsl(158, 95%, 34%);
+  cursor: pointer;
+} 
+
+  </style>
+</head>
+<body>
+  <div class="main">
+    <form action="#" class="formData">
+      <label for="firstName">First Name:</label>
+      <input type="text" name="name" id="firstName" placeholder="First Name" required>
+      <label for="lastName">Last Name:</label>
+      <input type="text" name="name" id="lastName" placeholder="Lasst Name" required>
+      <label for="myEmail">Email:</label>
+      <input type="text" name="name" id="myEmail" placeholder="Enter Your Email" required>
+      <button class="btn" type="button" onclick="submitFormData()">Submit</button>
+    </form>
+  </div>
+  <div id="displayData">
+
+  </div> 
+
+
+  <div class="item-details" id="itemDetails">
+    Initial content visible to the user
+    <p>This is a brief description of the item. Only a part of the details is shown initially.</p>
+    Full details hidden by default
+    <>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam perspiciatis deserunt porro provident, voluptatibus atque explicabo minima eius? Tempore doloremque ab, totam obcaecati odio debitis impedit quidem in eius ipsa dolorum officiis id ad sequi doloribus alias illum sed deserunt velit veniam quaerat? Doloremque tempora deserunt fuga perferendis, ipsam alias adipisci facere autem noconsectetur adipisicing elit. Aliq </p>
+  </div> 
+
+  <!-- "Read more" button -->
+   <p class="read-more-btn" onclick="toggleReadMore()">Read more</p>
+<div id="studentData">
+
+  <table >
+    <tr>
+      <th>Index</th>
+      <th>Name</th>
+      <th>Class</th>
+      <th>Marks</th>
+    </tr>
+    <tr>
+  <td>0</td>
+  <td>null</td>
+  <td>null</td>
+  <td>null</td>
+  <td class="hoverButton"><button onclick="editData(this)"><a href="">Edit</a></button></td>
+  <td class="hoverButton"><button onclick="deleteData(this)"><a href="">Delete</a></button></td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Waqar</td>
+  <td>10</td>
+  <td>70</td>
+  <td class="hoverButton"><button onclick="editData(this)"><a href="">Edit</a></button></td>
+  <td class="hoverButton"><button onclick="deleteData(this)"><a href="">Delete</a></button></td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>Zain</td>
+  <td>8</td>
+  <td>60</td>
+  <td class="hoverButton"><button onclick="editData(this)"><a href="">Edit</a></button></td>
+  <td class="hoverButton"><button onclick="deleteData(this)"><a href="">Delete</a></button></td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>Sudais</td>
+  <td>9</td>
+  <td>60</td>
+  <td class="hoverButton"><button onclick="editData(this)"><a href="">Edit</a></button></td>
+  <td class="hoverButton"><button onclick="deleteData(this)"><a href="">Delete</a></button></td>
+</tr>
+</table>
+</div>
+<script src="class23.js">
+  function submitFormData(){
+  let firstName = document.getElementById('firstName').value;
+  let lastName = document.getElementById('lastName').value;
+  let myEmail = document.getElementById('myEmail').value;
+  let displayData = document.getElementById('displayData');
+  displayData.innerHTML = '<h2>Form Data:</h2>' +
+  '<p><strong>First Name:</strong> ' + firstName + '</p>' +
+  '<p><strong>Last Name:</strong> ' + lastName + '</p>' +
+  '<p><strong>Email:</strong> ' + myEmail + '</p>';
+
+}
+
+function toggleReadMore() {
+  var itemDetails = document.getElementById("itemDetails");
+
+  // Toggle the max-height property to show/hide content
+  if (itemDetails.style.maxHeight) {
+    itemDetails.style.maxHeight = null;
+  } else {
+    itemDetails.style.maxHeight = itemDetails.scrollHeight + "px";
+  }
+}
+</script>
+</body>
+</html>
